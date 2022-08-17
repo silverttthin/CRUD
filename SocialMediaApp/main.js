@@ -2,15 +2,27 @@ let form = document.getElementById("form");
 let input = document.getElementById("input");
 let msg = document.getElementById("msg");
 let posts = document.getElementById("posts");
+let allClear = document.getElementById("allClear");
 let data = {};
 
-form.addEventListener("submit", (e) => {
+allClear.addEventListener(
+    "click",
+    () => {
+        posts.innerHTML = "";
+        data = {};
+        console.log(data);
+    }
+)
+
+form.addEventListener(
+    "submit", 
+    (e) => {
     e.preventDefault();
     console.log("button clicked");
 
     formValidation();
-
-})
+}
+) // 왼쪽에 있는게(form) 첫번째 인수가 되면(submit이 되면) 두번째 인수 함수를 실행해주세요
 
 let formValidation = () => {
     if (input.value === "") {
